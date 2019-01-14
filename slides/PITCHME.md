@@ -10,6 +10,16 @@
 
 ---
 
+### I will not talk about
+
+* Docker
+* Kubernetes
+* Micro-services
+* DevOps
+* Politics
+
+---
+
 ### Decoupling Applications
 
 * Your application starts simple
@@ -77,6 +87,16 @@ Note:
 | Event Grid | Reactive programming | Event distribution (discrete) | React to status changes |
 | Event Hubs | Big data pipeline | Event streaming (series) | Telemetry and distributed data streaming |
 | Service Bus | High-value enterprise messaging | Message | Order processing and financial transactions |
+
+---
+
+### Kafka-enabled Event Hubs
+
+* TODO
+
+Note:
+
+* [Check](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
 ---
 

@@ -1,6 +1,5 @@
 ---?image=slides/img/cover.png
 
----
 @transition[none]
 background : slides/img/cover.png
 

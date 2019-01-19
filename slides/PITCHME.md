@@ -78,11 +78,13 @@ Note:
 
 ### @color[rgb(104, 32, 121)](Comparision of Services)
 
+@snap[midpoint]
 | Service | Purpose | Type | When to use |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Reactive programming | Event distribution (discrete) | React to status changes |
 | Event Hubs | Big data pipeline | Event streaming (series) | Telemetry and distributed data streaming |
 | Service Bus | High-value enterprise messaging | Message | Order processing and financial transactions |
+@snapend
 
 ---?image=slides/img/slide.PNG
 

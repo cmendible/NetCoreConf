@@ -74,7 +74,7 @@ Note:
 * Event: lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer only needs to know that something happened.
 * Message: A message is raw data produced by a service to be consumed or stored elsewhere. A contract exists between the two sides
 
----?image=slides/img/slide.PNG&size=10px
+---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Comparision of Services)
 

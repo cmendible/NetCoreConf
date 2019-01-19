@@ -44,7 +44,7 @@ Note:
 ### @color[rgb(104, 32, 121)](Decoupling Applications)
 
 * Adding a new system to you monolith may be painfull
-* Change is difficulkt cause applications are thigtly copupled
+* Change is difficult cause applications are thigtly copupled
 * Lack of velocity
 * The more it grows the mora fragil the system becomes.
 * Innovation is risky.
@@ -102,8 +102,10 @@ Note:
 
 ---?image=slides/img/slide.PNG
 
+### @color[rgb(104, 32, 121)](Demo time!!!)
+
 @snap[midpoint]
-### Demo Time!
+
 @snapend
 
 ---?image=slides/img/sponsors.png

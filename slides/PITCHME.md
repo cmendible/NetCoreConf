@@ -14,9 +14,9 @@
 * DevOps
 * Politics
 
----
+---?image=slides/img/slide.PNG
 
-### Decoupling Applications
+### @color[rgb(104, 32, 121)](Decoupling Applications)
 
 * Your application starts simple
 * One or may be two data sources
@@ -24,9 +24,9 @@
 * We all know what a Monolith is right?
 * Who avoids premature optimization?
 
----
+---?image=slides/img/slide.PNG
 
-### Decoupling Applications
+### @color[rgb(104, 32, 121)](Decoupling Applications)
 
 * What if you need more data sources?
 * What if you need different backend process?
@@ -39,9 +39,9 @@ Note:
 * Experimentation
 * Move to streaminmg architecture
 
----
+---?image=slides/img/slide.PNG
 
-### Decoupling Applications
+### @color[rgb(104, 32, 121)](Decoupling Applications)
 
 * Adding a new system to you monolith may be painfull
 * Change is difficulkt cause applications are thigtly copupled
@@ -49,9 +49,9 @@ Note:
 * The more it grows the mora fragil the system becomes.
 * Innovation is risky.
 
----
+---?image=slides/img/slide.PNG
 
-### Event Driven Communications
+### @color[rgb(104, 32, 121)](Event Driven Communications)
 
 * Event Bus
 * Pub / Sub
@@ -62,9 +62,9 @@ Note:
   * RabbitMQ
   * ...
 
----
+---?image=slides/img/slide.PNG
 
-### Events & Messages
+### @color[rgb(104, 32, 121)](Events & Messages)
 
 * Event: lightweight notification of a condition or a state change
 * Message: A message is raw data produced by a service to be consumed or stored elsewhere.
@@ -74,9 +74,9 @@ Note:
 * Event: lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer only needs to know that something happened.
 * Message: A message is raw data produced by a service to be consumed or stored elsewhere. A contract exists between the two sides
 
----
+---?image=slides/img/slide.PNG
 
-### Comparision of Services
+### @color[rgb(104, 32, 121)](Comparision of Services)
 
 | Service | Purpose | Type | When to use |
 | ------- | ------- | ---- | ----------- |
@@ -84,9 +84,9 @@ Note:
 | Event Hubs | Big data pipeline | Event streaming (series) | Telemetry and distributed data streaming |
 | Service Bus | High-value enterprise messaging | Message | Order processing and financial transactions |
 
----
+---?image=slides/img/slide.PNG
 
-### Kafka-enabled Event Hubs
+### @color[rgb(104, 32, 121)](Kafka-enabled Event Hubs)
 
 * TODO
 
@@ -94,13 +94,13 @@ Note:
 
 * [Check](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
----
+---?image=slides/img/slide.PNG
 
-### Eventual Consistency
+### @color[rgb(104, 32, 121)](Eventual Consistency)
 
 * TODO
 
----?color=#e7ad52
+---?image=slides/img/slide.PNG
 
 @snap[midpoint]
 ### Demo Time!

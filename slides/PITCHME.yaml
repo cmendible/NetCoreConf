@@ -9,8 +9,6 @@ layout : top-left
 
 transition : none
 
-background-size : contain
-
 title : "DECOUPLING YOUR APPLICATION WITH .NET CORE, AZURE AND EVENTS"
 description : "DECOUPLING YOUR APPLICATION WITH .NET CORE, AZURE AND EVENTS"
 thumbnail : https://gitpitch.com/gpimg/the-template-thumb.jpg

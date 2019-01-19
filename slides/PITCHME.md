@@ -1,4 +1,8 @@
+---?image=slides/img/cover.png
+
+---
 @transition[none]
+background : slides/img/cover.png
 
 @snap[south-east]
 ##### Carlos Mendible @cmendibl3<br>Technical Manager @everis

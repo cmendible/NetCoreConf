@@ -96,6 +96,37 @@ Note:
 
 ---?image=slides/img/slide.PNG
 
+### @color[rgb(104, 32, 121)](Event Hubs)
+
+- Distributed Data Streaming
+- A streaming service designed to do low latency distributed stream ingress
+- A partitioned consumer scale model
+- A time retention buffer
+- An elastic component in the middle of your chain
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Event Hubs)
+
+> Event Hub is the ideal service for telemetry ingestion from websites, apps and streams of big data Distributed Data Streaming
+
+- Stream millions of events per second
+  - Telemetry and logging
+  - Scale ingestion service
+  - Distributed streaming platform
+- Process real-time and batch on same stream
+  - Event Hub Capture* to load data to Azure
+  - Batch processing
+  - Real time processing
+- Handle volume, variety and velocity of data
+  - Fully-manage service
+  - Ingest events with elastic scale
+  - Accommodate variable load profiles
+
+> Cloud-scale telemetry ingestion service that can log millions of events per second in near real time
+
+---?image=slides/img/slide.PNG
+
 ### @color[rgb(104, 32, 121)](Kafka-enabled Event Hubs)
 
 | Kafka Concept | Event Hubs Concept |
@@ -122,6 +153,57 @@ Note:
 Note:
 
 - [Check](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Service Bus)
+
+- Messaging as a Service
+- Reliable asynchronous communication
+- Rich features for temporal control
+- Routing and filtering
+- Transactions
+- Convoys & Sessions (related messages with state)
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Basics of a Queue)
+
+- Sender sends message to queue
+- Queue ACKs receipt
+- Receiver connects to queue & retrieves message
+- Receiver ACKs complete (or other action)
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Topics and Subscriptions)
+
+- Sender only knows about Topic
+- Receivers only know about Subscriptions
+- Filters and Actions exist on Subscriptions
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Features of Service Bus)
+
+@snap[west]
+- Scheduled delivery
+- Poison message handling
+- ForwardTo
+- Defer
+- Sessions
+- Batching
+- Ordering
+@snapend
+
+@snap[east]
+- Auto-delete on idle
+- OnMessage
+- Duplicate detection
+- Filters
+- Actions
+- Transactions
+@snapend
 
 ---?image=slides/img/slide.PNG
 

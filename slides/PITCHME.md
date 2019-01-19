@@ -1,17 +1,10 @@
 ---?image=slides/img/cover.png
-
 @transition[none]
-background : slides/img/cover.png
 
-@snap[south-east]
-##### Carlos Mendible @cmendibl3<br>Technical Manager @everis
-@snapend
+---?image=slides/img/sponsors.png
+@transition[none]
 
-@snap[midpoint]
-### DECOUPLING YOUR APPLICATION WITH .NET CORE, AZURE AND EVENTS
-@snapend
-
----
+---?image=slides/img/slide.png
 
 ### I will not talk about
 
@@ -113,14 +106,8 @@ Note:
 ### Demo Time!
 @snapend
 
----
+---?image=slides/img/sponsors.png
+@transition[none]
 
-@snap[south-east]
-Twitter: [@cmendibl3](https://twitter.com/cmendibl3)
-<br>
-Blog: [carlos.mendible.com](https://carlos.mendible.com)
-@snapend
-
-@snap[midpoint]
-### Thank you!
-@snapend
+---?image=slides/img/end.png
+@transition[none]

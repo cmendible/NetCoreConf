@@ -105,7 +105,7 @@ Note:
 ### @color[rgb(104, 32, 121)](Demo time!!!)
 
 @snap[midpoint]
-
+![BSOD](slides/img/bsod.png)
 @snapend
 
 ---?image=slides/img/sponsors.png

@@ -78,7 +78,7 @@ Note:
 
 ### @color[rgb(104, 32, 121)](Comparision of Services)
 
-@size[14px](
+@size[10px](
 | Service | Purpose | Type | When to use |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | Reactive programming | Event distribution (discrete) | React to status changes |

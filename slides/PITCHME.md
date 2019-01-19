@@ -70,14 +70,14 @@ Note:
   - Azure Event Hubs
   - Kafka
   - RabbitMQ
-  - ...
+  - Other
 
 ---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Events & Messages)
 
-- Event: lightweight notification of a condition or a state change
-- Message: A message is raw data produced by a service to be consumed or stored elsewhere.
+- **Event**: lightweight notification of a condition or a state change
+- **Message**: A message is raw data produced by a service to be consumed or stored elsewhere.
 
 Note:
 
@@ -90,13 +90,13 @@ Note:
 
 | Service | Purpose | Type | When to use |
 | ------- | ------- | ---- | ----------- |
-| Event Grid | Reactive programming | Event distribution (discrete) | React to status changes |
 | Event Hubs | Big data pipeline | Event streaming (series) | Telemetry and distributed data streaming |
 | Service Bus | High-value enterprise messaging | Message | Order processing and financial transactions |
+| Event Grid | Reactive programming | Event distribution (discrete) | React to status changes |
 
 ---?image=slides/img/slide.PNG
 
-### @color[rgb(104, 32, 121)](Event Hubs)
+### @color[rgb(104, 32, 121)](Azure Event Hubs)
 
 - Distributed Data Streaming
 - A streaming service designed to do low latency distributed stream ingress
@@ -106,9 +106,20 @@ Note:
 
 ---?image=slides/img/slide.PNG
 
-### @color[rgb(104, 32, 121)](Event Hubs)
+### @color[rgb(104, 32, 121)](Azure Event Hubs)
 
-> Event Hub is the ideal service for telemetry ingestion from websites, apps and streams of big data Distributed Data Streaming
+> Event Hub is the ideal service for telemetry ingestion from websites, apps and streams of big data 
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Azure Event Hubs)
+
+- Distributed Data Streaming
+- Stream millions of events per second
+- Process real-time and batch on same stream
+- Handle volume, variety and velocity of data
+
+Note:
 
 - Stream millions of events per second
   - Telemetry and logging
@@ -123,7 +134,7 @@ Note:
   - Ingest events with elastic scale
   - Accommodate variable load profiles
 
-> Cloud-scale telemetry ingestion service that can log millions of events per second in near real time
+Cloud-scale telemetry ingestion service that can log millions of events per second in near real time
 
 ---?image=slides/img/slide.PNG
 
@@ -139,16 +150,17 @@ Note:
 
 ---?image=slides/img/slide.PNG
 
-### @color[rgb(104, 32, 121)](Kafka Features (not supported))
+### @color[rgb(104, 32, 121)](Kafka-enabled Event Hubs)
 
-- Idempotent producer
-- Transaction
-- Compression
-- Size-based retention
-- Log compaction
-- Adding partitions to an existing topic
-- HTTP Kafka API support
-- Kafka Streams
+- Kafka Features not yet supported by Event Hubs
+  - Idempotent producer
+  - Transaction
+  - Compression
+  - Size  -based retention
+  - Log compaction
+  - Adding partitions to an existing topic
+  - HTTP Kafka API support
+  - Kafka Streams
 
 Note:
 
@@ -156,7 +168,7 @@ Note:
 
 ---?image=slides/img/slide.PNG
 
-### @color[rgb(104, 32, 121)](Service Bus)
+### @color[rgb(104, 32, 121)](Azure Service Bus)
 
 - Messaging as a Service
 - Reliable asynchronous communication
@@ -167,7 +179,7 @@ Note:
 
 ---?image=slides/img/slide.PNG
 
-### @color[rgb(104, 32, 121)](Basics of a Queue)
+### @color[rgb(104, 32, 121)](Azure Service Bus)
 
 - Sender sends message to queue
 - Queue ACKs receipt
@@ -176,7 +188,7 @@ Note:
 
 ---?image=slides/img/slide.PNG
 
-### @color[rgb(104, 32, 121)](Topics and Subscriptions)
+### @color[rgb(104, 32, 121)](Azure Service Bus)
 
 - Sender only knows about Topic
 - Receivers only know about Subscriptions
@@ -184,9 +196,11 @@ Note:
 
 ---?image=slides/img/slide.PNG
 
-### @color[rgb(104, 32, 121)](Features of Service Bus)
+### @color[rgb(104, 32, 121)](Features of a Service Bus)
 
 @snap[west]
+@ul[](false)
+
 - Scheduled delivery
 - Poison message handling
 - ForwardTo
@@ -194,16 +208,56 @@ Note:
 - Sessions
 - Batching
 - Ordering
+
+@ulend
 @snapend
 
 @snap[east]
+@ul[](false)
+
 - Auto-delete on idle
 - OnMessage
 - Duplicate detection
 - Filters
 - Actions
 - Transactions
+
+@ulend
 @snapend
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Event Grid)
+
+- Fully-managed event routing
+- Near real-time event delivery at scale
+- Broad coverage within Azure and beyond
+- Backbone of event-driven computing
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Event Grid)
+
+- **Event**: what happened
+- **Event Publisher**: where it took place
+- **Topic**: where publishers send events
+- **Event Subscriptions**: routes & filters events
+- **Filters**: EventTypes, SubjectBeginsWith, SubjectEndsWith
+- **Event Handlers**: app or service reacting to the event
+
+---?image=slides/img/slide.PNG
+
+### @color[rgb(104, 32, 121)](Event Grid Scenarios)
+
+- Sereverless Apps
+- Ops Automation
+- 3rd Party Integration
+
+Note:
+
+- Execute changes against a datastore
+- Run a function to check compliance check on each newly created database.
+- Use custom "drive starts" and "drive ends" events to log vehicule performance metrics
 
 ---?image=slides/img/slide.PNG
 

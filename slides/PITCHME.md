@@ -6,7 +6,7 @@
 
 ---?image=slides/img/slide.PNG
 
-### I will not talk about
+### @color[rgb(104, 32, 121)](I will not talk about)
 
 * Docker
 * Kubernetes

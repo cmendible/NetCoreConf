@@ -8,83 +8,81 @@
 
 ### @color[rgb(104, 32, 121)](I will not talk about)
 
-@ul
 - Docker
 - Kubernetes
 - Micro-services
 - DevOps
 - Politics
-@ulend
+
+Note:
+
+Esta claro que cualquiera de los temas que muestro en esta slide son topicos interesantes, pero nno os voy a dar la chapa con docker, k8s, DevOps o politica.
 
 ---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Decoupling Applications)
 
-@ul
 - Your application starts simple
 - One or may be two data sources
 - One backend
 - We all know what a Monolith is right?
 - Who avoids premature optimization?
-@ulend
+
+Note:
+
+- Que es lo tipico cuando creamos aplicaciones? Pues que comenzamos con algo simple, quizas un portal con una quizas dos fuentes de datos.
+- Lo tipico es tener un monolito entre manos
+- Y que me dicen de optimizar temprano en el ciclo de vida de una aplicacion?
 
 ---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Decoupling Applications)
 
-@ul
 - What if you need more data sources?
 - What if you need different backend process?
 - What happens when your system fails?
 - What about the scalabiliy of both the system and your team?
-@ulend
 
 Note:
 
-* Initial decisions must change
-* Experimentation
-* Move to streaminmg architecture
+- Las decisiones inciales las debemos cambiar
+- Que pasa si queremos experimentar?
+- Y si necesitamos movernos a una arquitectura de streaminmg?
 
 ---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Decoupling Applications)
 
-@ul
 - Adding a new system to you monolith may be painfull
 - Change is difficult cause applications are thigtly coupled
 - Lack of velocity
 - The more it grows the mora fragil the system becomes.
 - Innovation is risky.
-@ulend
 
 ---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Event Driven Communications)
 
-@ul
 - Event Bus
 - Pub / Sub
 - Implementations:
-  * Azure Service Bus
-  * Azure Event Hubs
-  * Kafka
-  * RabbitMQ
-  * ...
-@ulend
+  - Azure Service Bus
+  - Azure Event Hubs
+  - Kafka
+  - RabbitMQ
+  - ...
 
 ---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Events & Messages)
 
-@ul
 - Event: lightweight notification of a condition or a state change
 - Message: A message is raw data produced by a service to be consumed or stored elsewhere.
-@ulend
 
 Note:
 
-* Event: lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer only needs to know that something happened.
-* Message: A message is raw data produced by a service to be consumed or stored elsewhere. A contract exists between the two sides
+- Event: lightweight notification of a condition or a state change. The publisher of the event has no expectation about how the event is handled. The consumer only needs to know that something happened.
+- Message: A message is raw data produced by a service to be consumed or stored elsewhere. A contract exists between the two sides.
 
 ---?image=slides/img/slide.PNG
 
@@ -112,7 +110,6 @@ Note:
 
 ### @color[rgb(104, 32, 121)](Kafka Features (not supported))
 
-@ul
 - Idempotent producer
 - Transaction
 - Compression
@@ -121,11 +118,10 @@ Note:
 - Adding partitions to an existing topic
 - HTTP Kafka API support
 - Kafka Streams
-@ulend  
 
 Note:
 
-* [Check](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
+- [Check](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview)
 
 ---?image=slides/img/slide.PNG
 

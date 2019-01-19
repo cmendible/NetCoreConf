@@ -1,10 +1,8 @@
 ---?image=slides/img/cover.png
 @title[Cover]
-@transition[none]
 
 ---?image=slides/img/sponsors.png
 @title[Sponsors]
-@transition[none]
 
 ---?image=slides/img/slide.PNG
 
@@ -135,24 +133,14 @@ Note:
 
 > A consistency model used in distributed computing to achieve high availability that informally guarantees that, if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value.
 
----?image=slides/img/bsod.PNG
+---?image=slides/img/bsod.png
 @title[Joke]
-
-Note:
-
-joke
 
 ---?image=slides/img/itcrowd.gif&size=contain
 @title[Demo Time]
 
-Note:
-
-It's demo time!
-
 ---?image=slides/img/sponsors.png
 @title[Sponsors]
-@transition[none]
 
 ---?image=slides/img/end.PNG
 @title[Thanks]
-@transition[none]

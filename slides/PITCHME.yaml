@@ -13,4 +13,4 @@ theme-override : slides/PITCHME.css
 
 title : "DECOUPLING YOUR APPLICATION WITH .NET CORE, AZURE AND EVENTS"
 description : "DECOUPLING YOUR APPLICATION WITH .NET CORE, AZURE AND EVENTS"
-thumbnail : https://gitpitch.com/gpimg/the-template-thumb.jpg
+thumbnail : slides/img/cover.png

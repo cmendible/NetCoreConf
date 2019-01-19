@@ -4,7 +4,7 @@
 ---?image=slides/img/sponsors.png
 @transition[none]
 
----?image=slides/img/slide.png
+---?image=slides/img/slide.PNG
 
 ### I will not talk about
 
@@ -109,5 +109,5 @@ Note:
 ---?image=slides/img/sponsors.png
 @transition[none]
 
----?image=slides/img/end.png
+---?image=slides/img/end.PNG
 @transition[none]

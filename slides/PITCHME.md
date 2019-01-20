@@ -171,7 +171,6 @@ Note:
 ### @color[rgb(104, 32, 121)](Azure Service Bus)
 
 - Messaging as a Service
-- Reliable asynchronous communication
 - Rich features for temporal control
 - Routing and filtering
 - Transactions
@@ -181,18 +180,20 @@ Note:
 
 ### @color[rgb(104, 32, 121)](Azure Service Bus)
 
-- Sender sends message to queue
-- Queue ACKs receipt
-- Receiver connects to queue & retrieves message
-- Receiver ACKs complete (or other action)
+- Queues:
+  - Sender sends message to queue
+  - Queue ACKs receipt
+  - Receiver connects to queue & retrieves message
+  - Receiver ACKs complete (or other action)
 
 ---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Azure Service Bus)
 
-- Sender only knows about Topic
-- Receivers only know about Subscriptions
-- Filters and Actions exist on Subscriptions
+- Pub / Sub
+  - Sender only knows about Topic
+  - Receivers only know about Subscriptions
+  - Filters and Actions exist on Subscriptions
 
 ---?image=slides/img/slide.PNG
 

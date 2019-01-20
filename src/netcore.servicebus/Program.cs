@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 
-namespace netcore.kafka
+namespace netcore.servicebus
 {
     class Program
     {

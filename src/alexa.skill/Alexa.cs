@@ -15,6 +15,8 @@ using Microsoft.SyndicationFeed.Rss;
 using System.Linq;
 using System;
 using Alexa.NET.LocaleSpeech;
+using System.Net.Http;
+using System.Text;
 
 namespace AlexaSkill
 {
@@ -55,6 +57,33 @@ namespace AlexaSkill
                 if (intentRequest.Intent.Name == "victoria")
                 {
                     var message = await locale.Get("event", new string[] { });
+
+                    var endPoint = Environment.GetEnvironmentVariable("eventGridEndPoint");
+                    var sas = Environment.GetEnvironmentVariable("eventGridSAS");
+
+                    var httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Add("aeg-sas-key", sas);
+
+                    // Event must have this fields
+                    var customEvent = new GridEvent<object>
+                    {
+                        Subject = "Event",
+                        EventType = "allEvents",
+                        EventTime = DateTime.UtcNow,
+                        Id = Guid.NewGuid().ToString(),
+                        Data = 10
+                    };
+
+                    // A List must be sent
+                    var eventList = new List<GridEvent<object>>() { customEvent };
+
+                    string jsonEvent = JsonConvert.SerializeObject(eventList);
+                    HttpRequestMessage request = new HttpRequestMessage(HttpMethod.Post, endPoint)
+                    {
+                        Content = new StringContent(jsonEvent, Encoding.UTF8, "application/json")
+                    };
+
+                    await httpClient.SendAsync(request);
 
                     response = ResponseBuilder.Tell(message);
                 }
@@ -153,5 +182,14 @@ namespace AlexaSkill
 
             return locale;
         }
+    }
+
+    public class GridEvent<T> where T : class
+    {
+        public string Id { get; set; }
+        public string Subject { get; set; }
+        public string EventType { get; set; }
+        public T Data { get; set; }
+        public DateTime EventTime { get; set; }
     }
 }

@@ -53,10 +53,10 @@ Note:
 
 ### @color[rgb(104, 32, 121)](Decoupling Applications)
 
-- Adding a new system to you monolith may be painfull
+- Adding a new system to your monolith may be painfull
 - Change is difficult cause applications are thigtly coupled
 - Lack of velocity
-- The more it grows the mora fragil the system becomes.
+- The more it grows the more fragil the system becomes.
 - Innovation is risky.
 
 ---?image=slides/img/slide.PNG
@@ -108,13 +108,12 @@ Note:
 
 ### @color[rgb(104, 32, 121)](Azure Event Hubs)
 
-> Event Hub is the ideal service for telemetry ingestion from websites, apps and streams of big data 
+> Event Hub is the ideal service for telemetry ingestion from websites, apps and streams of big data
 
 ---?image=slides/img/slide.PNG
 
 ### @color[rgb(104, 32, 121)](Azure Event Hubs)
 
-- Distributed Data Streaming
 - Stream millions of events per second
 - Process real-time and batch on same stream
 - Handle volume, variety and velocity of data

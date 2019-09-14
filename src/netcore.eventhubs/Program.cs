@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Reflection;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Azure.EventHubs;
+using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Processor;
 using Microsoft.Extensions.Configuration;
-using Microsoft.Azure.EventHubs.Processor;
 
 namespace netcore.eventhubs
 {
@@ -39,23 +36,20 @@ namespace netcore.eventhubs
         {
             try
             {
-                var connectionStringBuilder = new EventHubsConnectionStringBuilder(connectionString)
+                await using (var client = new EventHubClient(connectionString, eventHubName))
+                await using (var producer = client.CreateProducer())
                 {
-                    EntityPath = eventHubName
-                };
+                    var temperature = new Random();
 
-                var eventHubClient = EventHubClient.CreateFromConnectionString(connectionStringBuilder.ToString());
+                    // Send 10 messages to the topic
+                    for (int i = 0; i < 10; i++)
+                    {
+                        var message = $"Temperature is: {temperature.Next(0, 45)}";
 
-                var temperature = new Random();
+                        await producer.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
 
-                // Send 10 messages to the topic
-                for (int i = 0; i < 10; i++)
-                {
-                    var message = $"Temperature is: {temperature.Next(0, 45)}";
-
-                    await eventHubClient.SendAsync(new EventData(Encoding.UTF8.GetBytes(message)));
-
-                    Console.WriteLine($"SENT: {message}");
+                        Console.WriteLine($"SENT: {message}");
+                    }
                 }
 
             }
@@ -65,23 +59,33 @@ namespace netcore.eventhubs
             }
         }
 
-        static async Task Consume(string connectionString, string consumerGroup, string eventHubName, string storageConnectionString, string storageContainerName)
+        static async Task Consume(string connectionString, string consumerGroup, string eventHubName)
         {
-            var eventProcessorHost = new EventProcessorHost(
-                eventHubName,
-                consumerGroup,
-                connectionString,
-                storageConnectionString,
-                storageContainerName);
+            await using (var client = new EventHubClient(connectionString, eventHubName))
+            {
+                Func<PartitionContext, CheckpointManager, IPartitionProcessor> partitionProcessorFactory =
+                    (partitionContext, checkpointManager) => new TemperatureProcessor(partitionContext.PartitionId);
 
-            // Registers the Event Processor Host and starts receiving messages
-            await eventProcessorHost.RegisterEventProcessorAsync<TemperatureProcessor>();
+                var partitionManager = new InMemoryPartitionManager();
 
-            Console.WriteLine("Receiving. Press ENTER to stop worker.");
-            Console.ReadLine();
+                var eventProcessorOptions = new EventProcessorOptions
+                {
+                    InitialEventPosition = EventPosition.Latest,
+                    MaximumReceiveWaitTime = TimeSpan.FromSeconds(1)
+                };
 
-            // Disposes of the Event Processor Host
-            await eventProcessorHost.UnregisterEventProcessorAsync();
+                var eventProcessor = new EventProcessor(
+                    consumerGroup,
+                    client,
+                    partitionProcessorFactory,
+                    partitionManager,
+                    eventProcessorOptions);
+
+                await eventProcessor.StartAsync();
+
+                Console.WriteLine("Receiving...");
+                Console.ReadLine();
+            }
         }
 
         static void Main(string[] args)
@@ -98,8 +102,6 @@ namespace netcore.eventhubs
             var connectionString = config["eventHubsConnectionString"];
             var consumerGroup = config["eventHubsConsumerGroups"];
             var eventHubName = config["eventHub"];
-            var storageConnectionString = config["storageConnectionString"];
-            var storageContainerName = config["storageContainerName"];
 
             switch (mode)
             {
@@ -107,7 +109,7 @@ namespace netcore.eventhubs
                     Produce(connectionString, eventHubName).Wait();
                     break;
                 case "consume":
-                    Consume(connectionString, consumerGroup, eventHubName, storageConnectionString, storageContainerName).Wait();
+                    Consume(connectionString, consumerGroup, eventHubName).Wait();
                     break;
                 default:
                     PrintUsage();

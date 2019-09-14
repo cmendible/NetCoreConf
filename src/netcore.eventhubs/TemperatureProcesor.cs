@@ -1,41 +1,64 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Azure.EventHubs;
-using Microsoft.Azure.EventHubs.Processor;
+using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Processor;
 
 namespace netcore.eventhubs
 {
-    public class TemperatureProcessor : IEventProcessor
+    public class TemperatureProcessor : IPartitionProcessor
     {
-        public Task CloseAsync(PartitionContext context, CloseReason reason)
+        private static int totalEventsCount = 0;
+
+        public static int TotalEventsCount { get => totalEventsCount; }
+
+        private readonly string PartitionId;
+
+        public TemperatureProcessor(string partitionId)
         {
-            Console.WriteLine($"Processor Shutting Down. Partition '{context.PartitionId}', Reason: '{reason}'.");
+            PartitionId = partitionId;
+
+            Console.WriteLine($"\tPartition '{ PartitionId }': partition processor successfully created.");
+        }
+
+        public Task InitializeAsync()
+        {
+            Console.WriteLine($"\tPartition '{ PartitionId }': partition processor successfully initialized.");
             return Task.CompletedTask;
         }
 
-        public Task OpenAsync(PartitionContext context)
+        public Task CloseAsync(PartitionProcessorCloseReason reason)
         {
-            Console.WriteLine($"SimpleEventProcessor initialized. Partition: '{context.PartitionId}'");
+            Console.WriteLine($"\tPartition '{ PartitionId }': partition processor successfully closed. Reason: { reason }.");
             return Task.CompletedTask;
         }
 
-        public Task ProcessErrorAsync(PartitionContext context, Exception error)
+        public Task ProcessErrorAsync(Exception exception, CancellationToken cancellationToken)
         {
-            Console.WriteLine($"Error on Partition: {context.PartitionId}, Error: {error.Message}");
+            Console.WriteLine($"\tPartition '{ PartitionId }': an unhandled exception was encountered. This was not expected to happen.");
             return Task.CompletedTask;
         }
 
-        public Task ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+        public Task ProcessEventsAsync(IEnumerable<EventData> events, CancellationToken cancellationToken)
         {
-            foreach (var eventData in messages)
+            int eventsCount = events.Count();
+
+            if (eventsCount > 0)
             {
-                var data = Encoding.UTF8.GetString(eventData.Body.Array, eventData.Body.Offset, eventData.Body.Count);
-                Console.WriteLine($"Message received. Partition: '{context.PartitionId}', Data: '{data}'");
+                Interlocked.Add(ref totalEventsCount, eventsCount);
+                Console.WriteLine($"\tPartition '{ PartitionId }': { eventsCount } event(s) received.");
             }
 
-            return context.CheckpointAsync();
+            foreach (var eventData in events)
+            {
+                var data = Encoding.UTF8.GetString(eventData.Body.ToArray());
+                Console.WriteLine($"Message received. Partition: '{PartitionId}', Data: '{data}'");
+            }
+
+            return Task.CompletedTask;
         }
     }
 }

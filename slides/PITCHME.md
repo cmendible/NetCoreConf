@@ -249,7 +249,7 @@ Note:
 
 ### @color[rgb(104, 32, 121)](Event Grid Scenarios)
 
-- Sereverless Apps
+- Serverless Apps
 - Ops Automation
 - 3rd Party Integration
 
@@ -257,7 +257,7 @@ Note:
 
 - Execute changes against a datastore
 - Run a function to check compliance check on each newly created database.
-- Use custom "drive starts" and "drive ends" events to log vehicule performance metrics
+- Use custom "drive starts" and "drive ends" events to log vehicle performance metrics
 
 ---?image=slides/img/slide.PNG
 

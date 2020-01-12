@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/<subscription>/resourceGroups/tenerife/providers/Microsoft.Web/sites/guanche",
+    "appService.deploySubpath": "bin\\release\\netcoreapp3.0\\publish"
+}

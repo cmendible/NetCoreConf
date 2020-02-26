@@ -1,0 +1,18 @@
+controller:
+  config:
+    proxy-buffer-size: "16k"
+    proxy-buffers: "4 16k"
+    proxy-busy-buffers-size: "16k"
+  service:
+    omitClusterIP: true
+    #    annotations:
+    #      service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  replicaCount: 2
+  nodeSelector: 
+    beta.kubernetes.io/os: linux 
+defaultBackend:
+  nodeSelector:
+    beta.kubernetes.io/os: linux 
+  service:
+    omitClusterIP: true
+

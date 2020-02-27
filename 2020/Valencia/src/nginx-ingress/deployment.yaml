@@ -16,7 +16,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
         - name: netcoreconf
-          image: cmendibl3/linkedin
+          image: cmendibl3/netcoreconf
           resources:
             requests:
               cpu: 100m
@@ -37,7 +37,7 @@ spec:
     - port: 80
   selector:
     app: netcoreconf
- 
+
 ---
 apiVersion: extensions/v1beta1
 kind: Ingress
@@ -48,10 +48,10 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
   rules:
-  - host: netcoreconf.westeurope.cloudapp.azure.com 
-    http:
-      paths:
-      - path: /
-        backend:
-          serviceName: netcoreconf
-          servicePort: 80
+    - host: netcoreconf.westeurope.cloudapp.azure.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: netcoreconf
+              servicePort: 80

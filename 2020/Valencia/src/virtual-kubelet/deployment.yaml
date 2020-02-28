@@ -1,29 +1,49 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: helloworld
 spec:
-  containers:
-    - image: microsoft/aci-helloworld
-      imagePullPolicy: Always
-      name: helloworld
-      resources:
-        requests:
-          memory: 1G
-          cpu: 1
-      ports:
-        - containerPort: 80
-          name: http
-          protocol: TCP
-        - containerPort: 443
-          name: https
-  dnsPolicy: ClusterFirst
-  nodeSelector:
-    kubernetes.io/role: agent
-    beta.kubernetes.io/os: linux
-    type: virtual-kubelet
-  tolerations:
-    - key: virtual-kubelet.io/provider
-      operator: Exists
-    - key: azure.com/aci
-      effect: NoSchedule
+  replicas: 3
+  selector:
+    matchLabels:
+      app: helloworld
+  template:
+    metadata:
+      labels:
+        app: helloworld
+    spec:
+      containers:
+        - image: microsoft/aci-helloworld
+          imagePullPolicy: Always
+          name: helloworld
+          resources:
+            requests:
+              memory: 1G
+              cpu: 1
+          ports:
+            - containerPort: 80
+              name: http
+              protocol: TCP
+            - containerPort: 443
+              name: https
+      dnsPolicy: ClusterFirst
+      nodeSelector:
+        kubernetes.io/role: agent
+        beta.kubernetes.io/os: linux
+        type: virtual-kubelet
+      tolerations:
+        - key: virtual-kubelet.io/provider
+          operator: Exists
+        - key: azure.com/aci
+          effect: NoSchedule
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: helloworld
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+  selector:
+    app: helloworld

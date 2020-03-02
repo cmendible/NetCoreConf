@@ -27,4 +27,3 @@ ssh -i id_rsa cmendibl3@10.240.0.4
 
 ---
 
-kubectl apply -f kured-1.3.0-dockerhub.yaml

@@ -1,0 +1,39 @@
+- name: Deploy Resources
+  hosts: localhost
+  gather_facts: no
+  connection: local
+  vars:
+    resource_group: "iac-war-ansible"
+    location: "westeurope"
+    keyvault_name: "iacwarkv-ansible"
+    regex: "[`'\"]"
+    replace: ""
+  tasks:
+    - name: Get user object id
+      shell: >
+        az ad signed-in-user show --query 'objectId' 
+      register: objectId
+
+    - name: Create current subscription
+      shell: >
+        az account show 
+      register: subscription
+
+    - name: Create Resource Group
+      azure_rm_resourcegroup:
+        name: "{{ resource_group }}"
+        location: "{{ location }}"
+
+    - name: Create Key Vault
+      azure_rm_keyvault:
+        resource_group: "{{ resource_group }}"
+        vault_name: "{{ keyvault_name }}"
+        vault_tenant: "{{ (subscription.stdout | from_json).tenantId | regex_replace(regex, replace) }}"
+        sku:
+          name: standard
+        access_policies:
+          - tenant_id: "{{ (subscription.stdout | from_json).tenantId | regex_replace(regex, replace) }}"
+            object_id: "{{ objectId.stdout | regex_replace(regex, replace) }}"
+            keys:
+              - get
+              - list

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: node
+          image: nginx:1.15.5
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi
+            limits:
+              cpu: 250m
+              memory: 256Mi
+          volumeMounts:
+            - mountPath: "/mnt/azure"
+              name: volume
+      volumes:
+        - name: volume
+          persistentVolumeClaim:
+            claimName: episodeiv-azurefile
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: episodeiv-azurefile
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: episodeiv-azurefile
+  resources:
+    requests:
+      storage: 5Gi

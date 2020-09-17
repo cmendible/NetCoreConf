@@ -1,0 +1,5 @@
+encryptionsalt: v1:K2uWdM37DZ0=:v1:dnYy/BAskVs3L4YU:9LF/AvdleemSrHFNOZ/nkNkItBEv1w==
+config:
+  azure:location: WestEurope
+  KeyVaultStack:resource_group_name: iac-war-pulumi
+  KeyVaultStack:key_vault_name: iacwarkv-pul

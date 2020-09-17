@@ -1,17 +1,18 @@
 {
-    "tasks": [
-        {
-            "label": "azds: prelaunch",
-            "command": "azds",
-            "args": [
-                "up",
-                "--await-exec",
-                "--keep-alive"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
-            },
-            "problemMatcher": "$msCompile"
-        }
-    ]
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "azds: prelaunch",
+			"command": "azds",
+			"args": [
+				"up",
+				"--await-exec",
+				"--keep-alive"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": "$msCompile"
+		}
+	]
 }

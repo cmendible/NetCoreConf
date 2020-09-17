@@ -1,0 +1,3 @@
+name: KeyVaultStack
+runtime: dotnet
+description: A sample stack for .NET Core Conf

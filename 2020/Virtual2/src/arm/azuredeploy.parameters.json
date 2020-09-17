@@ -1,0 +1,18 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "rgName": {
+            "value": "iac-war-arm"
+        },
+        "rgLocation": {
+            "value": "West Europe"
+        },
+        "keyVaultName": {
+            "value": "iacwarkv-arm"
+        },
+        "objectId": {
+            "value": "<object id>"
+        }
+    }
+}

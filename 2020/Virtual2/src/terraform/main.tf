@@ -6,7 +6,7 @@ data "azurerm_client_config" "current" {}
 
 # DeployResource Group
 resource "azurerm_resource_group" "rg" {
-  name     = "iac-war-aso"
+  name     = var.resource_group_name
   location = "West Europe"
 }
 
@@ -18,7 +18,7 @@ resource "azurerm_key_vault" "kv" {
   tenant_id           = data.azurerm_subscription.current.tenant_id
 
   sku_name = "standard"
-  
+
 
   # Add read & list permissions to the calling client.
   access_policy {

@@ -34,6 +34,6 @@
         access_policies:
           - tenant_id: "{{ (subscription.stdout | from_json).tenantId | regex_replace(regex, replace) }}"
             object_id: "{{ objectId.stdout | regex_replace(regex, replace) }}"
-            keys:
+            secrets:
               - get
               - list

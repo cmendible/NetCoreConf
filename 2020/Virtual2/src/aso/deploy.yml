@@ -3,25 +3,25 @@ kind: ResourceGroup
 metadata:
   name: iac-war-aso
 spec:
-  location: "westeurope"
+  location: westeurope
 
 ---
 apiVersion: azure.microsoft.com/v1alpha1
 kind: KeyVault
 metadata:
-  name: iacwarkv-aso
+  name: iacwarkv-aso-net
 spec:
   resourceGroup: iac-war-aso
-  location: westus
+  location: westeurope
   enableSoftDelete: false
   sku:
     name: standard
   networkPolicies:
-    bypass: AzureServices 
+    bypass: AzureServices
     defaultAction: Allow
   accessPolicies:
     - tenantID: <tenant id>
-      clientID: <client id>
+      objectID: <client id>
       permissions:
         secrets:
           - list

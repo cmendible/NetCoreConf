@@ -11,7 +11,7 @@ class KeyVaultStack : Stack
         var currentSubscription = Output.Create(GetSubscription.InvokeAsync());
         var tenantId = currentSubscription.Apply(currentSubscription => currentSubscription.TenantId);
 
-        // Get current Subscription
+        // Get current Client Config
         var currentClient = Output.Create(GetClientConfig.InvokeAsync());
         var objectId = currentClient.Apply(currentClient => currentClient.ObjectId);
 
@@ -41,6 +41,5 @@ class KeyVaultStack : Stack
         this.VaultUri = keyVault.VaultUri;
     }
 
-    [Output]
     public Output<string> VaultUri { get; set; }
 }

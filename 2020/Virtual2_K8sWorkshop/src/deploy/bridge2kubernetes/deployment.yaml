@@ -1,0 +1,78 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: privacywebapi
+  labels:
+    app: webapi
+spec:
+  selector:
+    app: webapi
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: webui
+  labels:
+    app: webui
+spec:
+  selector:
+    app: webui
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webui
+  labels:
+    app: webui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webui
+  template:
+    metadata:
+      labels:
+        app: webui
+    spec:
+      containers:
+        - name: webui
+          image: cmendibl3/netcoreconfv2-webui
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapi
+  labels:
+    app: webapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webapi
+  template:
+    metadata:
+      labels:
+        app: webapi
+    spec:
+      containers:
+        - name: webapi
+          image: cmendibl3/netcoreconfv2-webapi
+          ports:
+            - containerPort: 80
+          imagePullPolicy: Always
